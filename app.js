@@ -16,26 +16,26 @@ var campgroundSchema = new mongoose.Schema({
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-Campground.create(
-    {
-        name: "Granite Hill", 
-        image: "https://tse1.mm.bing.net/th?id=OIP.Md1f83d679995b3f691ab1069c9118f8dH0&pid=15.1",
-        description: "This is a huge Granite Hill, no bathrooms, no water..."
+// Campground.create(
+//     {
+//         name: "Granite Hill", 
+//         image: "https://tse1.mm.bing.net/th?id=OIP.Md1f83d679995b3f691ab1069c9118f8dH0&pid=15.1",
+//         description: "This is a huge Granite Hill, no bathrooms, no water..."
         
-    }, function(err, campground){
-        if(err){
-            console.log(err);
-        }else{
-            console.log("newly created campground");
-            console.log(campground);
-        }
-    });
+//     }, function(err, campground){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             console.log("newly created campground");
+//             console.log(campground);
+//         }
+//     });
 
-var campgrounds = [
-            {name: "Salmon Creek", image: "https://tse2.mm.bing.net/th?id=OIP.M9dbbe2631605279b6832302f7d0e2e4dH0&pid=15.1"},
-            {name: "Granit Hill", image: "https://tse1.mm.bing.net/th?id=OIP.Md1f83d679995b3f691ab1069c9118f8dH0&pid=15.1"},
-            {name: "Mountain Got's Rest", image: "http://cozywinters.com/blog/wp-content/uploads/2015/05/spring-camping-tips.jpg"}
-];
+// var campgrounds = [
+//             {name: "Salmon Creek", image: "https://tse2.mm.bing.net/th?id=OIP.M9dbbe2631605279b6832302f7d0e2e4dH0&pid=15.1"},
+//             {name: "Granit Hill", image: "https://tse1.mm.bing.net/th?id=OIP.Md1f83d679995b3f691ab1069c9118f8dH0&pid=15.1"},
+//             {name: "Mountain Got's Rest", image: "http://cozywinters.com/blog/wp-content/uploads/2015/05/spring-camping-tips.jpg"}
+// ];
 
 app.get("/", function(req, res){
     res.render("landing");
@@ -47,7 +47,7 @@ app.get("/campgrounds", function(req, res){
        if(err){
            console.log(err);
        } else {
-           res.render("campgrounds", {campgrounds: allCampgrounds});
+           res.render("index", {campgrounds: allCampgrounds});
        }
     });
         // res.render("campgrounds", {campgrounds: campgrounds});
@@ -57,7 +57,8 @@ app.post("/campgrounds", function(req,res){
    //get data from form and add to campground array
    var name = req.body.name;
    var image = req.body.image;
-   var newCampground = {name: name, image: image};
+   var desc = req.body.description;
+   var newCampground = {name: name, image: image, description: desc};
    //Create a new campground and save to DB
    Campground.create(newCampground, function(err, newlyCreated){
        if(err){
@@ -73,11 +74,19 @@ app.post("/campgrounds", function(req,res){
 app.get("/campgrounds/new", function(req,res){
    res.render("new"); 
 });
-
-app.get("/campgrounds:id", function(req,res){
+//SHOW - show more info about one campground
+app.get("/campgrounds/:id", function(req,res){
     //find the campground with provided ID
-    //render show template with that campground
-    res.send("THIS WILL BE THE SHOW PAGE!!");
+    Campground.findById(req.params.id, function(err, foundCampground){
+        if(err){
+            console.log(err);
+        } else {
+            //render show template with that campground
+            res.render("show", {campground: foundCampground});
+        }
+    });
+  
+    
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
