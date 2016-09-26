@@ -1,9 +1,15 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser")
-
+var express         = require("express"),
+    app             = express(),
+    bodyParser      = require("body-parser"),
+    mongoose        = require("mongoose");
+    
+mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+
+//SCHEMA SETUP
+
+
 
 var campgrounds = [
             {name: "Salmon Creek", image: "https://tse2.mm.bing.net/th?id=OIP.M9dbbe2631605279b6832302f7d0e2e4dH0&pid=15.1"},
