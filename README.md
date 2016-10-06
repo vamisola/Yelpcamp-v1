@@ -1,36 +1,31 @@
-# Yelpcamp v2
-
-# a project from Web Development Bootcamp course
-
-#Style the campgrounds page
- * Add a better header/title
- * Make campgrounds display in a grid
- * 
- 
-#Style the Navbar and Form
- * Add a navbar to all templates
- * Style the new campground form
- * 
- 
-#Add Mongoose
- * Install and configure mongoose
- * Setup campground model
- * Use campground model inside of our routes
- * 
- 
+# Yelpcamp v3
+* install and configure Mongoose
+* Setup campground model
+* Use campground model insise of our routes
+* 
 #Show Page
- * Review the RESTful routes we've seen so far
- * Add description to our campground model
- * Show db.collection.drop()
- * Add a show route/template
- * 
- 
+* Review the RESTful routes we've seen so far
+* Add description to our campground model
+* Show db.collection.drop()
+* Add a show route/template
+* 
+#Refactor Mongoose Code
+* Create a models directory
+* Use module.exports
+* Require everything correctlyls
 
-RESTFUL ROUTES  - good to have structure - to follow pattern - lots of app will follow that makes it reliable to interact to other app
+#Add Seeds File
+* Add a seeds.js file
+* Run the seeds file every time the server starts
 
-name    url             verb    desc
-====================================================
-INDEX   /dogs            GET    Display a list of all dog
-NEW     /dogs/new       GET     Display form to make a new dog
-CREATE  /dogs           POST    Add new dog to DB
-SHOW    /dogs/:id       GET     Shows info about one dog
+#Add he Comment model
+* Make our errors go away
+* Display comments on campground show page
+* 
+
+#Comment New/Create
+* Discuss nested routes
+* Add the comment new and create routes
+* Add the new comment form
+
+
