@@ -6,7 +6,11 @@ var express     = require("express"),
     Comment     = require("./models/comment"),
     seedDB      = require("./seeds");
     
+<<<<<<< HEAD
 mongoose.connect("mongodb://localhost/yelp_camp_v5");
+=======
+mongoose.connect("mongodb://localhost/yelp_camp_v4");
+>>>>>>> 177353ac081a222ee2da53cdcd81c8f2d32fed95
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
