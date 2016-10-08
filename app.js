@@ -2,15 +2,14 @@ var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
+    passport    = require("passport"),
+    LocalStrategy   = require("passport-local"),
     Campground  = require("./models/campground"),
     Comment     = require("./models/comment"),
+    User        = require("./models/user"),
     seedDB      = require("./seeds");
     
-<<<<<<< HEAD
-mongoose.connect("mongodb://localhost/yelp_camp_v5");
-=======
-mongoose.connect("mongodb://localhost/yelp_camp_v4");
->>>>>>> 177353ac081a222ee2da53cdcd81c8f2d32fed95
+mongoose.connect("mongodb://localhost/yelp_camp_v6");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
