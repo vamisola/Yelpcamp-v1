@@ -1,35 +1,3 @@
-# Yelpcamp v7 Refactoring
-* install and configure Mongoose
-* Setup campground model
-* Use campground model insise of our routes
-* 
-#Show Page
-* Review the RESTful routes we've seen so far
-* Add description to our campground model
-* Show db.collection.drop()
-* Add a show route/template
-* 
-#Refactor Mongoose Code
-* Create a models directory
-* Use module.exports
-* Require everything correctlyls
-
-#Add Seeds File
-* Add a seeds.js file
-* Run the seeds file every time the server starts
-
-#Add he Comment model
-* Make our errors go away
-* Display comments on campground show page
-* 
-
-#Comment New/Create
-* Discuss nested routes
-* Add the comment new and create routes
-* Add the new comment form
-* 
-
-
 #YelpCamp
 
 ##Initial Setup
@@ -114,22 +82,69 @@ Each Campground has:
 * Add links to navbar
 
 ##Auth Pt. 5 - Show/Hide Links
-* Show/hide auth links in navbar correctly
-* 
+* Show/hide auth links in navbar 
 
 ##Refactor The Routes
-* Use Express router to reorganize all routes
-* 
+* Use Express router to reoragnize all routes
 
 ##Users + Comments
 * Associate users and comments
 * Save author's name to a comment automatically
-* 
 
 ##Users + Campgrounds
-* Prevent on unauthenticated user from creating a campground
+* Prevent an unauthenticated user from creating a campground
 * Save username+id to newly created campground
 
+# Editing Campgrounds
+* Add Method-Override
+* Add Edit Route for Campgrounds
+* Add Link to Edit Page
+* Add Update Route
+
+#Deleting Campgrounds
+* Add Destroy Route
+* Add Delete button
+
+#Authorization Part 1: Campgrounds
+* User can only edit his/her campgrounds
+* User can only delete his/her campgrounds
+* Hide/Show edit and delete buttons
+
+#Editing Comments
+* Add Edit route for comments
+* Add Edit button
+* Add Update route
+
+Campground Edit Route: <!--/campgrounds/:id/edit-->
+Comment Edit Route:   <!--/campgrounds/:id/comments/:comment_id/edit-->
+
+#Deleting Comments
+* Add Destroy route
+* Add Delete button
+
+Campground Destroy Route: /campgrounds/:id
+Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
+
+#Authorization Part 2: Comments
+* User can only edit his/her comments
+* User can only delete his/her comments
+* Hide/Show edit and delete buttons
+* Refactor Middleware
+
+
+
+
+
+
+* BOOTSTRAP NAV COLLPASE JS
+* Flash Messages
+* Refactor container div to header
+* Show/hide delete and update buttons
+* style login/register forms
+* Random Background Landing Page
+* Refactor middleware
+* change styling in show template - comment delete/update
+* UPDATE/DELETE CAMPGROUND
 
 
 RESTFUL ROUTES  - good to have structure - to follow pattern - lots of app will follow that makes it reliable to interact to other app
