@@ -15,11 +15,12 @@ var commentRoutes       = require("./routes/comments"),
     authRoutes          = require("./routes/index");  
 
 mongoose.Promise = global.Promise;    
-mongoose.connect("mongodb://localhost/yelp_camp_v7");
+mongoose.connect("mongodb://localhost/yelp_camp_v8");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-seedDB();
+
+//seedDB(); //seed the database
 
 //Passport configuration
 app.use(require("express-session")({
