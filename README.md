@@ -1,4 +1,4 @@
-# Yelpcamp v6
+# Yelpcamp v7 Refactoring
 * install and configure Mongoose
 * Setup campground model
 * Use campground model insise of our routes
